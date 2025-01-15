@@ -1,0 +1,233 @@
+/* General Page Styling */
+.create-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #4a63f6;
+  color: white;
+  padding: 2rem;
+  min-height: 100vh;
+}
+
+.create-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+/* Grid Layout */
+.create-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two-column layout */
+  grid-gap: 2rem;
+  width: 80%;
+}
+
+/* Grid Items */
+.grid-item {
+  background: #ffffff;
+  color: #4a63f6;
+  border-radius: 10px;
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+
+.section-content {
+  flex: 1;
+}
+
+/* Sender Section Styling */
+.sender-section {
+  display: flex;
+  justify-content: space-between; /* Ensures the step indicator is on the right */
+  align-items: flex-start; /* Aligns the content to the top */
+  padding: 1rem; /* Adds some spacing inside the box */
+  position: relative; /* For proper positioning of elements */
+}
+
+.sender-section .label {
+  font-size: 1.2rem; /* Adjusts font size */
+  font-weight: bold; /* Makes the label bold */
+  margin-bottom: 0.5rem; /* Adds spacing between labels */
+}
+
+.sender-section .value {
+  font-weight: bold; /* Makes the sender's name bold */
+  margin-bottom: 1rem; /* Adds spacing below the value */
+  display: block; /* Ensures proper spacing */
+}
+
+/* Block Content Section */
+.block-content-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+/* Input Styling */
+.recipient-dropdown,
+.block-content {
+  width: 100%;
+  padding: 1rem;
+  border: 2px solid #4a63f6;
+  border-radius: 10px;
+  margin-top: 0.5rem;
+}
+
+.block-content {
+  height: 100px;
+  resize: none;
+}
+
+/* Buttons */
+.add-block-button,
+.mine-block-button {
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  background-color: #4a63f6;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.add-block-button:hover,
+.mine-block-button:hover {
+  background-color: #3a52d1;
+}
+
+/* Step Circle Styling */
+.step-indicator {
+  margin-left: 1rem;
+}
+
+.step-circle {
+  width: 50px;
+  height: 50px;
+  border: 2px solid #4a63f6;
+  border-radius: 50%;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: #4a63f6;
+  font-weight: bold;
+}
+
+/* Block View Section */
+.block-view-section {
+  grid-column: 1 / span 2;
+  background-color: white;
+  color: #4a63f6;
+  border-radius: 10px;
+  padding: 2rem;
+}
+
+.block-view-title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.block-item {
+  background-color: #f0f0f0;
+  color: #333;
+  border-radius: 5px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+/* Block Content Section */
+.block-content-section {
+  display: flex;
+  justify-content: space-between; /* Ensures label and step are aligned */
+  align-items: flex-start; /* Aligns content to the top */
+  padding: 1rem; /* Adds spacing inside */
+  background: #ffffff; /* Background matches the design */
+  border-radius: 10px; /* Rounded corners for the box */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.block-content-section .section-content {
+  flex-grow: 1; /* Ensures proper spacing for the label and textarea */
+}
+
+.block-content-section .label {
+  font-size: 1.2rem; /* Text size for the label */
+  font-weight: bold; /* Ensures label stands out */
+  margin-bottom: 0.5rem; /* Adds spacing between label and textarea */
+}
+
+.block-content {
+  width: 100%; /* Ensures it fills the container */
+  height: 120px; /* Text area height */
+  padding: 1rem; /* Padding for user comfort */
+  font-size: 1rem; /* Readable font size */
+  border: 2px solid #4a63f6; /* Matches the theme color */
+  border-radius: 10px; /* Rounded corners */
+  resize: none; /* Prevent resizing */
+  outline: none; /* Removes default focus outline */
+}
+
+.block-content:focus {
+  border-color: #3a52d1; /* Highlighted border on focus */
+  box-shadow: 0 0 8px rgba(58, 82, 209, 0.8); /* Glow effect */
+}
+
+/* Step Indicator */
+.block-content-section .step-indicator {
+  margin-left: 1rem; /* Adds spacing from the section */
+}
+
+.step-circle {
+  width: 50px;
+  height: 50px;
+  border: 2px solid #4a63f6; /* Matches the theme color */
+  border-radius: 50%; /* Circle shape */
+  background-color: #ffffff; /* White background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: #4a63f6;
+  font-weight: bold;
+}
+.value {
+  font-weight: bold; /* Makes the text bold */
+  font-size: 1.2rem; /* Adjusts the font size */
+  color: #4a63f6; /* Optional: Matches the theme color */
+  margin-top: 0.5rem; /* Adds spacing above */
+}
+
+.block-view-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start; /* Align blocks to the left */
+  gap: 1rem; /* Spacing between blocks */
+  margin-bottom: 1rem; /* Space between blocks and mined details */
+}
+
+/* Block View Item */
+.block-view-item {
+  background-color: #f9f9f9; /* Light background */
+  color: #333;
+  border: 1px solid #e0e0e0; /* Subtle border */
+  border-radius: 10px;
+  padding: 1rem;
+  width: 250px; /* Consistent width */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Mined Details Card */
+.mined-details-card {
+  background-color: #eaf4ff; /* Light blue background */
+  color: #4a63f6; /* Themed text color */
+  border: 1px solid #d0e6ff; /* Light border */
+  border-radius: 10px;
+  padding: 1.5rem;
+  width: 250px; /* Consistent card width */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
