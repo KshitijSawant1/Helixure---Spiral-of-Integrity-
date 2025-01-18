@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from "react";
 import sha256 from "js-sha256";
-import Papa from "papaparse";
-import "../styles/Create.css";
-import accountsCSV from "../backend/accounts.csv";
 import {
   collection,
   addDoc,
@@ -11,6 +8,7 @@ import {
   serverTimestamp,
 } from "firebase/firestore";
 import { db } from "../firebase";
+import "../styles/Create.css";
 
 const Create = ({ username }) => {
   const [recipient, setRecipient] = useState("");
@@ -18,19 +16,25 @@ const Create = ({ username }) => {
   const [blocks, setBlocks] = useState([]);
   const [recipients, setRecipients] = useState([]);
 
-  // Load recipients from CSV
+  // Load recipients from Firestore
   useEffect(() => {
-    Papa.parse(accountsCSV, {
-      download: true,
-      header: true,
-      complete: (result) => {
-        const names = result.data
-          .map((row) => row["Full Name"])
-          .filter(Boolean);
-        const filteredNames = names.filter((name) => name !== username); // Exclude current user
-        setRecipients(filteredNames);
-      },
-    });
+    const fetchRecipients = async () => {
+      try {
+        const accountsQuery = query(collection(db, "Accounts"));
+        const snapshot = await getDocs(accountsQuery);
+
+        // Extract recipient names, excluding the current user
+        const fetchedRecipients = snapshot.docs
+          .map((doc) => doc.data().Fullname)
+          .filter((name) => name && name !== username);
+
+        setRecipients(fetchedRecipients);
+      } catch (error) {
+        console.error("Error fetching recipients:", error);
+      }
+    };
+
+    fetchRecipients();
   }, [username]);
 
   // Check for Genesis Block and add it if not present

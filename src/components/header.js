@@ -7,9 +7,9 @@ const Header = ({ username, setUsername }) => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    localStorage.removeItem("username");
-    setUsername(null);
-    navigate("/login");
+    localStorage.removeItem("username"); // Clear stored username
+    setUsername(null); // Clear username state
+    navigate("/login"); // Navigate to login page
   };
 
   return (

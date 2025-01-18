@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import "../styles/Signup.css";
-import axios from "axios";
+import { db } from "../firebase"; // Import Firestore
+import { collection, addDoc } from "firebase/firestore"; // Firestore functions
 import SignupImage from "../assets/SIM2.png";
-import { Link, useNavigate } from "react-router-dom"; // Import useNavigate
+import { Link, useNavigate } from "react-router-dom"; // For navigation
 
 const Signup = () => {
-  const navigate = useNavigate(); // Initialize useNavigate
+  const navigate = useNavigate(); // Initialize navigation
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -15,6 +16,7 @@ const Signup = () => {
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
+  // Update form data when input changes
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -23,27 +25,34 @@ const Signup = () => {
     }));
   };
 
+  // Handle signup form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await axios.post(
-        "http://localhost:3000/signup",
-        formData
+      // Add user data to Firestore Accounts collection
+      const accountsRef = collection(db, "Accounts");
+      await addDoc(accountsRef, {
+        Fullname: formData.fullName,
+        Email: formData.email,
+        Password: formData.password,
+        Keyword: formData.keyword,
+      });
+
+      // Show success message and reset form
+      setSuccessMessage(
+        "Account created successfully! Redirecting to Login..."
       );
-
-      setSuccessMessage(response.data); // Display success message from server
       setErrorMessage("");
-      setFormData({ fullName: "", email: "", password: "", keyword: "" }); // Reset the form
+      setFormData({ fullName: "", email: "", password: "", keyword: "" });
 
-      // Redirect to login page after success
+      // Redirect to login page
       setTimeout(() => {
         navigate("/login");
-      }, 2000); // Redirect after 2 seconds to show success message
+      }, 2000); // Redirect after 2 seconds
     } catch (error) {
-      setErrorMessage(
-        error.response ? error.response.data : "Error connecting to the server."
-      );
+      console.error("Error signing up:", error);
+      setErrorMessage("Error creating account. Please try again.");
       setSuccessMessage("");
     }
   };

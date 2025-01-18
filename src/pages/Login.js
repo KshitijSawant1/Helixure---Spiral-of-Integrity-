@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import "../styles/Login.css";
 import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
+import { collection, getDocs } from "firebase/firestore"; // Firestore functions
+import { db } from "../firebase"; // Firestore instance
 import { FaEye, FaEyeSlash } from "react-icons/fa"; // Import eye icons
 
 const Login = ({ setUsername }) => {
@@ -17,6 +18,7 @@ const Login = ({ setUsername }) => {
   const [showKeywordPrompt, setShowKeywordPrompt] = useState(false);
   const [forgotPassword, setForgotPassword] = useState(false);
 
+  // Handle input changes
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -25,69 +27,86 @@ const Login = ({ setUsername }) => {
     }));
   };
 
+  // Toggle password visibility
   const togglePasswordVisibility = () => {
-    setShowPassword((prev) => !prev); // Toggle password visibility
+    setShowPassword((prev) => !prev);
   };
 
+  // Login handler
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await axios.post(
-        "http://localhost:3000/login",
-        formData
-      );
+      // Fetch all documents from the "Accounts" collection
+      const accountsRef = collection(db, "Accounts");
+      const querySnapshot = await getDocs(accountsRef);
 
-      const { message, username } = response.data;
+      // Find the user in the collection
+      const user = querySnapshot.docs
+        .map((doc) => doc.data())
+        .find((account) => account.Email === formData.email);
 
-      setSuccessMessage(message);
+      if (!user) {
+        setErrorMessage("Email not found.");
+        return;
+      }
+
+      if (user.Password !== formData.password) {
+        setErrorMessage("Password incorrect. Please enter your keyword.");
+        setShowKeywordPrompt(true);
+        return;
+      }
+
+      // Successful login
+      setSuccessMessage("Login successful!");
       setErrorMessage("");
-      setUsername(username);
+      setUsername(user.Fullname);
       setFormData({ email: "", password: "", keyword: "" });
 
       navigate("/home");
     } catch (error) {
-      if (error.response) {
-        setErrorMessage(error.response.data);
-
-        if (
-          error.response.data ===
-          "Password incorrect. Please enter your keyword."
-        ) {
-          setShowKeywordPrompt(true);
-          setErrorMessage("");
-        }
-      } else {
-        setErrorMessage("Error connecting to the server.");
-      }
+      console.error("Error during login:", error);
+      setErrorMessage("Error connecting to the database.");
     }
   };
 
+  // Forgot password handler
   const handleForgotPasswordSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:3000/recover", {
-        email: formData.email,
-        keyword: formData.keyword,
-      });
+      // Fetch all documents from the "Accounts" collection
+      const accountsRef = collection(db, "Accounts");
+      const querySnapshot = await getDocs(accountsRef);
 
-      const { username, password } = response.data; // Extract username and password
+      // Find the user in the collection
+      const user = querySnapshot.docs
+        .map((doc) => doc.data())
+        .find((account) => account.Email === formData.email);
 
-      // Set a string message for successMessage
+      if (!user) {
+        setErrorMessage("Account not found.");
+        return;
+      }
+
+      if (user.Keyword.trim() !== formData.keyword.trim()) {
+        setErrorMessage("Keyword incorrect.");
+        return;
+      }
+
+      // Show recovered account details
       setSuccessMessage(
-        `Account Details: Full Name: ${username}, Password: ${password}`
+        `Account Details: Full Name: ${user.Fullname}, Password: ${user.Password}`
       );
       setErrorMessage("");
-      setForgotPassword(false); // Hide the forgot password form
+      setForgotPassword(false);
     } catch (error) {
-      setErrorMessage(
-        error.response?.data || "Error connecting to the server."
-      );
-      setSuccessMessage("");
+      console.error("Error recovering account:", error);
+      setErrorMessage("Error connecting to the database.");
     }
   };
 
+  // Toggle forgot password form
   const toggleForgotPassword = () => {
     setForgotPassword((prevState) => !prevState);
   };
