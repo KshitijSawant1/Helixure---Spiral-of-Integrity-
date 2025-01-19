@@ -25,6 +25,7 @@
 }
 
 /* Grid Items */
+/* Grid Items */
 .grid-item {
   background: #ffffff;
   color: #4a63f6;
@@ -34,7 +35,12 @@
   justify-content: space-between;
   align-items: center;
   text-align: center;
+  width: 90%; /* Reduce the width for step blocks */
+  max-width: 600px; /* Limit the maximum width */
+  margin: 0 auto; /* Center align the blocks */
+  box-sizing: border-box; /* Include padding in width calculations */
 }
+
 
 .section-content {
   flex: 1;
@@ -230,4 +236,174 @@
   padding: 1.5rem;
   width: 250px; /* Consistent card width */
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+@media (max-width: 768px) {
+  .create-grid {
+    grid-template-columns: 1fr; /* Switch to a single-column layout */
+    width: 100%; /* Ensure full width on smaller screens */
+  }
+
+  .grid-item {
+    text-align: center; /* Center-align content */
+    padding: 1rem; /* Adjust padding for smaller screens */
+  }
+
+  .block-content {
+    height: 100px; /* Adjust text area height */
+  }
+
+  .step-circle {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+  .block-view-section {
+    width: 95%; /* Slightly narrower width for medium screens */
+    max-width: none; /* Remove max-width constraint */
+  }
+}
+
+@media (max-width: 480px) {
+  .create-title {
+    font-size: 2rem; /* Smaller title for compact screens */
+  }
+
+  .add-block-button,
+  .mine-block-button {
+    padding: 0.8rem 1.5rem; /* Smaller buttons for smaller screens */
+    font-size: 1rem;
+  }
+}
+/* Responsive Design for Phone View */
+@media (max-width: 768px) {
+  .create-container {
+    padding: 1rem; /* Adjust padding for smaller screens */
+  }
+
+  .create-title {
+    font-size: 1.8rem; /* Adjust title size for smaller screens */
+    margin-bottom: 1.5rem;
+  }
+
+  .create-grid {
+    display: flex; /* Use flex for stacking */
+    flex-direction: column; /* Stack items vertically */
+    width: 100%; /* Full width for the container */
+    gap: 1rem; /* Space between items */
+  }
+
+  .grid-item {
+    width: 100%; /* Full width for each block */
+    padding: 1rem; /* Adjust padding for better readability */
+    text-align: left; /* Align text to the left */
+    font-size: 1rem; /* Adjust font size */
+  }
+
+  .add-block-button,
+  .mine-block-button {
+    width: 100%; /* Buttons take full width */
+    padding: 1rem; /* Adjust button padding */
+  }
+
+  .block-view-section {
+    width: 100%; /* Ensure full width for the block view */
+    margin-top: 1rem; /* Add spacing above the block view */
+  }
+
+  .block-content {
+    height: 80px; /* Adjust textarea height for smaller screens */
+  }
+
+  .step-circle {
+    width: 40px;
+    height: 40px; /* Smaller step circle */
+    font-size: 1.2rem; /* Adjust font size for the step number */
+  }
+  .grid-item {
+    width: 95%; /* Make step blocks slightly narrower for smaller screens */
+    max-width: none; /* Remove max-width constraint */
+  }
+}
+
+@media (max-width: 480px) {
+  .create-title {
+    font-size: 1.8rem;
+  }
+
+  .grid-item {
+    padding: 0.5rem; /* Reduce padding further for very small screens */
+  }
+
+  .block-content {
+    height: 60px; /* Compact text area for smaller screens */
+  }
+
+  .add-block-button,
+  .mine-block-button {
+    padding: 0.6rem;
+    font-size: 0.8rem;
+  }
+
+  .step-circle {
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
+  }
+  .grid-item {
+    width: 100%; /* Use full width on very small screens */
+    padding: 1rem; /* Reduce padding */
+  }
+  .block-view-section {
+    width: 100%; /* Full width for small screens */
+    padding: 1rem; /* Adjust padding for smaller screens */
+  }
+}
+/* Block View Section */
+.block-view-section {
+  grid-column: 1 / span 2;
+  background-color: white;
+  color: #4a63f6;
+  border-radius: 10px;
+  padding: 2rem;
+  width: 100%; /* Ensure full width */
+  max-width: calc(91.5% + 2.1rem); /* Match Add Block and Mine Blocks width */
+  margin: 0 auto; /* Center align the block view */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for aesthetics */
+  box-sizing: border-box; /* Include padding in width calculations */
+  position: relative; /* Enable absolute positioning of the title */
+}
+
+/* Center Block View Title */
+.block-view-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  position: absolute; /* Allow free placement */
+  top: -20px; /* Adjust to position at the top */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Ensure proper horizontal alignment */
+  padding: 0.5em 1rem; /* Add padding around the text */
+  margin-bottom: 1.5rem; /* Add spacing below the title */
+}
+
+/* Block View Container */
+.block-view-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start; /* Align blocks to the left */
+  gap: 1.5rem; /* Adjust spacing between blocks */
+  margin-top: 3rem; /* Add space below the Block View text */
+  margin-bottom: 2rem; /* Add spacing below the entire block view */
+}
+
+/* Block View Item */
+.block-view-item {
+  background-color: #f9f9f9; /* Light background */
+  color: #333;
+  border: 1px solid #e0e0e0; /* Subtle border */
+  border-radius: 10px;
+  padding: 1rem;
+  width: 250px; /* Consistent width */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  margin-bottom: 1.5rem; /* Add spacing below each block */
 }

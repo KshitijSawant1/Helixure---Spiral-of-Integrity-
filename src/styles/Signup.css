@@ -125,15 +125,13 @@ body {
   }
 
   .signup-left {
-    margin-bottom: 20px;
-  }
-
-  .signup-image {
-    width: 100%;
+    display: none; /* Hide the image on phone screens */
   }
 
   .signup-right {
     text-align: center;
+    width: 100%; /* Ensure form occupies the full screen */
+    max-width: 500px; /* Limit the width for readability */
   }
 
   .signup-title {
@@ -143,4 +141,138 @@ body {
   .signup-subtitle {
     font-size: 1rem;
   }
+}
+
+@media (max-width: 480px) {
+  .signup-form input {
+    padding: 8px; /* Adjust padding for smaller devices */
+    font-size: 1rem;
+  }
+
+  .signup-button {
+    padding: 10px;
+    font-size: 0.9rem; /* Slightly smaller button */
+  }
+
+  .signup-title {
+    font-size: 1.8rem; /* Slightly smaller title */
+  }
+
+  .signup-subtitle {
+    font-size: 0.9rem;
+  }
+}
+
+/* Adjust spacing for Signup Form */
+.signup-form label {
+  font-size: 1rem;
+  color: #4a63f6;
+  margin-bottom: 3px; /* Reduce the margin below labels */
+  font-weight: bold;
+}
+
+.signup-form input {
+  padding: 8px; /* Slightly reduce padding */
+  font-size: 1rem;
+  margin-bottom: 15px; /* Reduce spacing between input fields */
+  border: 1px solid #4a63f6;
+  border-radius: 5px;
+  transition: box-shadow 0.3s, border-color 0.3s;
+}
+
+/* Adjust spacing for titles */
+.signup-title {
+  font-size: 2rem;
+  margin-bottom: 10px; /* Add some spacing below the title */
+}
+
+.signup-subtitle {
+  font-size: 1rem;
+  margin-bottom: 15px; /* Reduce spacing for the subtitle */
+}
+
+/* Adjust button spacing */
+.signup-button {
+  padding: 10px; /* Slightly smaller padding for buttons */
+  font-size: 0.9rem;
+  margin-top: 10px; /* Add space above the button */
+}
+
+/* Adjust spacing for smaller screens */
+@media (max-width: 768px) {
+  .signup-container {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .signup-left {
+    display: none; /* Hide the image on phone screens */
+  }
+
+  .signup-right {
+    text-align: center;
+    width: 100%; /* Ensure form occupies the full screen */
+    max-width: 450px; /* Limit the width for readability */
+  }
+
+  .signup-title {
+    font-size: 1.8rem; /* Slightly smaller title */
+    margin-bottom: 8px;
+  }
+
+  .signup-subtitle {
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+  }
+
+  .signup-form input {
+    padding: 8px; /* Adjust padding for smaller devices */
+    margin-bottom: 12px; /* Reduce margin between inputs */
+  }
+
+  .signup-button {
+    padding: 10px;
+    font-size: 0.9rem; /* Slightly smaller button */
+  }
+}
+@media (max-width: 480px) {
+  .signup-title {
+    font-size: 1.8rem; /* Smaller title font size */
+    margin-bottom: 6px;
+  }
+
+  .signup-subtitle {
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+  }
+
+  .signup-button {
+    padding: 8px;
+    font-size: 0.85rem;
+  }
+}
+
+/* Already have an account, Login - Styling */
+.Login-link {
+  text-align: center; /* Center the text */
+  margin-top: 20px; /* Add spacing above */
+  font-size: 1 rem; /* Adjust font size for readability */
+  color: #6c757d; /* Neutral text color */
+}
+
+.Login-link p {
+  margin: 0; /* Remove default paragraph margin */
+}
+
+.Login-link .create-account-link {
+  color: #4a63f6; /* Primary link color */
+  text-decoration: none; /* Remove underline */
+  font-weight: bold; /* Make it bold for emphasis */
+  transition: color 0.3s ease, text-shadow 0.3s ease; /* Smooth transition */
+}
+
+.Login-link .create-account-link:hover {
+  color: #3a52d1; /* Change color on hover */
+  text-shadow: 0 0 5px rgba(58, 82, 209, 0.5); /* Add subtle hover shadow */
+  text-decoration: underline; /* Add underline on hover */
 }
