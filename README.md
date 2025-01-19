@@ -30,31 +30,37 @@ Helixure is a blockchain-based application designed to simplify block creation, 
 ## Process Flow
 
 ### 1. User Authentication
-#### Image: `src/assets/Paper Resources/Figures/3.png`
-#### Image: `src/assets/Paper Resources/Figures/4.png`
+#### ![3](https://github.com/user-attachments/assets/7ad7e9e9-a6c2-46d2-acfc-442e56f7fddd)
+#### ![4](https://github.com/user-attachments/assets/c2c83146-7fe2-47e0-b324-adc41d92659f)
+
 - **Login Page**: Users log in with registered email and password.
 - **Account Creation**: New users provide their full name, email, password, and a secure keyword for recovery.
 
 ### 2. Dashboard Navigation
-#### Image: `src/assets/Paper Resources/Figures/1.png`
+#### ![1](https://github.com/user-attachments/assets/589308f6-b2c3-40a6-9516-9cdb4f1d7062)
+
 - **Welcome Page**: Users are greeted and can navigate to "Create Block" or "View Blockchain".
 
 ### 3. Create Block Page
-#### Image: `src/assets/Paper Resources/Figures/5.png`
+#### ![5](https://github.com/user-attachments/assets/edf4d93b-37c2-483d-9ed1-0081f1f70fa1)
+
 - **Block Creation**: Input sender (pre-filled), select recipient, and add block content.
 - **Mining Process**: Validate and append the block to the blockchain using PoW.
 
 ### 4. View Blockchain
-#### Image: `src/assets/Paper Resources/Figures/6.png`
+#### ![6](https://github.com/user-attachments/assets/5b4713e6-617d-4648-b994-eec67ba8cbde)
+
 - **Blockchain Explorer**: View mined blocks with detailed metadata.
 - **Search Functionality**: Filter blocks by block number, sender, or recipient.
 
 ### 5. Google Firestore: Accounts Collection
-#### Image: `src/assets/Paper Resources/Figures/7.png`
+#### ![7](https://github.com/user-attachments/assets/ddcb873a-a156-4c3f-8dc9-9f94f0c0b7fa)
+
 - **User Storage**: Stores user credentials, including email, password, and recovery keyword.
 
 ### 6. Google Firestore: Blockchain Collection
-#### Image: `src/assets/Paper Resources/Figures/8.png`
+#### ![8](https://github.com/user-attachments/assets/58cc74c5-e7b3-49b6-a486-597a9ce06d06)
+
 - **Blockchain Storage**: Mined blocks are stored with their hash, index, proof, timestamp, and transaction details.
 
 ---
@@ -103,22 +109,28 @@ Helixure is a blockchain-based application designed to simplify block creation, 
 ## Screenshots
 
 ### 1. Welcome Page
-![Welcome Page](src/assets/Paper Resources/Figures/1.png)
+![1](https://github.com/user-attachments/assets/c216a11f-5ec6-40d4-8055-b6b6494ef149)
+
 
 ### 2. Visionary Behind the Project
-![Visionary Behind the Project](src/assets/Paper Resources/Figures/2.png)
+![2](https://github.com/user-attachments/assets/81548987-b266-423b-aef2-36282d5d78eb)
+
 
 ### 3. Create Block Page
-![Create Block Page](src/assets/Paper Resources/Figures/5.png)
+![5](https://github.com/user-attachments/assets/cc8498ae-f644-4522-8061-c2c26a5baf89)
+
 
 ### 4. View Blockchain Page
-![View Blockchain Page](src/assets/Paper Resources/Figures/6.png)
+![6](https://github.com/user-attachments/assets/cd88dbc9-88e2-4844-a594-6644bdb17b35)
+
 
 ### 5. Firestore - Accounts Collection
-![Firestore Accounts](src/assets/Paper Resources/Figures/7.png)
+
+![7](https://github.com/user-attachments/assets/acd27ecd-446c-4094-8237-4d13c45a40e2)
 
 ### 6. Firestore - Blockchain Collection
-![Firestore Blockchain](src/assets/Paper Resources/Figures/8.png)
+![8](https://github.com/user-attachments/assets/2e356fbc-dbb9-41a8-bd8f-668ff4bf4a38)
+
 
 ---
 
