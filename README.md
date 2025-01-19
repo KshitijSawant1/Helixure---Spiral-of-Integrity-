@@ -1,70 +1,142 @@
-# Getting Started with Create React App
+# <img src="src/assets/HL.png" alt="InVision Logo" width="40"/> Helixure - Blockchain Management System
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Introduction
+Helixure is a blockchain-based application designed to simplify block creation, mining, and exploration. The project focuses on user-friendly interactions with robust blockchain functionalities while ensuring data integrity using Google Firestore for secure storage.
 
-## Available Scripts
+## Features
+1. **User Authentication**
+   - Secure login system using email and password.
+   - Account creation with recovery keyword for enhanced security.
+   - Password recovery using the registered email and secure keyword.
 
-In the project directory, you can run:
+2. **Dashboard Navigation**
+   - Access to "Create Block" and "View Blockchain" functionalities.
+   - Streamlined interface for seamless navigation.
 
-### `npm start`
+3. **Block Creation and Mining**
+   - Add and mine blocks with proof-of-work (PoW) validation.
+   - Store blocks in Google Firestore with comprehensive metadata.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+4. **Blockchain Exploration**
+   - View mined blocks with metadata like hash, proof, timestamp, and transactions.
+   - Search blocks by block number, sender, or recipient.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+5. **Google Firestore Integration**
+   - "Accounts" collection stores user credentials and recovery keywords securely.
+   - "Blockchain" collection maintains mined blocks for transparency and integrity.
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Process Flow
 
-### `npm run build`
+### 1. User Authentication
+#### Image: `src/assets/Paper Resources/Figures/3.png`
+#### Image: `src/assets/Paper Resources/Figures/4.png`
+- **Login Page**: Users log in with registered email and password.
+- **Account Creation**: New users provide their full name, email, password, and a secure keyword for recovery.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 2. Dashboard Navigation
+#### Image: `src/assets/Paper Resources/Figures/1.png`
+- **Welcome Page**: Users are greeted and can navigate to "Create Block" or "View Blockchain".
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 3. Create Block Page
+#### Image: `src/assets/Paper Resources/Figures/5.png`
+- **Block Creation**: Input sender (pre-filled), select recipient, and add block content.
+- **Mining Process**: Validate and append the block to the blockchain using PoW.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 4. View Blockchain
+#### Image: `src/assets/Paper Resources/Figures/6.png`
+- **Blockchain Explorer**: View mined blocks with detailed metadata.
+- **Search Functionality**: Filter blocks by block number, sender, or recipient.
 
-### `npm run eject`
+### 5. Google Firestore: Accounts Collection
+#### Image: `src/assets/Paper Resources/Figures/7.png`
+- **User Storage**: Stores user credentials, including email, password, and recovery keyword.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 6. Google Firestore: Blockchain Collection
+#### Image: `src/assets/Paper Resources/Figures/8.png`
+- **Blockchain Storage**: Mined blocks are stored with their hash, index, proof, timestamp, and transaction details.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Technologies Used
+- **Frontend**: React.js for a responsive and intuitive user interface.
+- **Backend**: Proof-of-work algorithm for mining.
+- **Database**: Google Firestore for secure and reliable data storage.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
+## Getting Started
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Prerequisites
+- Node.js installed on your system.
+- Google Firestore set up with collections: `Accounts` and `Blockchain`.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Installation
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-repo/helixure.git
+   ```
+2. Navigate to the project directory:
+   ```bash
+   cd helixure
+   ```
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
+4. Start the application:
+   ```bash
+   npm start
+   ```
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Usage
+1. **Account Creation**: Sign up with your details.
+2. **Login**: Access your account using email and password.
+3. **Create Block**: Add and mine blocks by providing content and recipient.
+4. **View Blockchain**: Explore the blockchain and search for specific blocks.
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Screenshots
 
-### Making a Progressive Web App
+### 1. Welcome Page
+![Welcome Page](src/assets/Paper Resources/Figures/1.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### 2. Visionary Behind the Project
+![Visionary Behind the Project](src/assets/Paper Resources/Figures/2.png)
 
-### Advanced Configuration
+### 3. Create Block Page
+![Create Block Page](src/assets/Paper Resources/Figures/5.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### 4. View Blockchain Page
+![View Blockchain Page](src/assets/Paper Resources/Figures/6.png)
 
-### Deployment
+### 5. Firestore - Accounts Collection
+![Firestore Accounts](src/assets/Paper Resources/Figures/7.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### 6. Firestore - Blockchain Collection
+![Firestore Blockchain](src/assets/Paper Resources/Figures/8.png)
 
-### `npm run build` fails to minify
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Contributing
+Contributions are welcome! Feel free to submit a pull request or open an issue for any bugs or feature requests.
+
+---
+
+## License
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+---
+
+## Contact
+For any queries or suggestions, please contact:
+- **Name**: Kshitij Sawant
+- **LinkedIn**: [Kshitij's LinkedIn](https://www.linkedin.com/in/kshitijksawant/)
+- **GitHub**: [Kshitij's GitHub](https://github.com/KshitijSawant1)
+- **LinkTree**: [Kshitij's LinkTree](https://linktr.ee/kshitij_sawant)
+
+---
